@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+require('colorful').colorful();
+
+var join = require('path').join;
+var exists = require('fs').existsSync;
+var program = require('commander');
+var spawn = require('win-spawn');
+
+program
+    .version(require('../package').version, '-v, --version')
+    .usage('<command> [options]')
+    .on('--help', printHelp)
+    .parse(process.argv);
+
+var subcmd = program.args[0];
+var bin;
+
+switch(subcmd) {
+	case 'build':
+		bin = executable(subcmd);
+		wrap(spawn(bin, program.args, {stdio: 'inherit'}));
+		break;
+	default:
+		program.help();
+}
+
+function printHelp() {
+	  console.log('  Package Commands:'.to.bold.green.color);
+  	console.log();
+  	console.log('    build           build the project');
+  	console.log();
+}
+
+function wrap(sp) {
+	sp.on('close', function(code) {
+	    process.exit(code);
+	});
+}
+
+function executable(subcmd) {
+    var file = join(__dirname, 'gpm-' + subcmd);
+
+    if (exists(file)) {
+        return file;
+    }
+}

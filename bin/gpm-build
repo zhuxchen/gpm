@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+require('colorful').colorful();
+
+var program = require('commander');
+var build = require('../lib/build');
+
+program
+    .version(require('../package').version, '-v, --version')
+    .usage('<command> [options]')
+    .on('--help', printHelp)
+    .parse(process.argv);
+
+var subcmd = program.args[1];
+
+if (!subcmd) {
+	  program.help();
+	  return;
+}
+
+build(subcmd);
+
+function printHelp() {
+	console.log('  Package Commands:'.to.bold.green.color);
+  	console.log();
+  	console.log('    args           Initialize the project name');
+  	console.log();
+}
