@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>齐材后台管理系统</title>
+	<meta name="appBaseUrl" content="/" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/css/normal.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css" />
+</head>
+<body>
+	<header id="js_navbar" class="navbar">
+		<%- include ../../template/server/tpl_header.html %>
+	</header>
+	<section class="main-container" id="js_main_container">
+		<%- include ../../template/server/tpl_menu.html %>
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs" id="js_breadcrumbs">
+					<%- include ../../template/common/tpl_breadcrumb.html %>
+				</div>
+				<div class="page-content" id="js_page_content">
+					<%- include ../../template/server/tpl_content.html %>
+				</div>
+			</div>
+		</div>
+		<!-- <footer></footer> -->
+	</section>
+	<!-- 脚本 -->
+	<script type="text/turtle-config" data-config="config.js" data-src="controllers/main.js"></script>
+	<script type="text/javascript" src="/javascript/Turtle.js"></script>
+</body>
+</html>

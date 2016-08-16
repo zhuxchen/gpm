@@ -1,0 +1,18 @@
+<% var len = list.length; %>
+<ul class="breadcrumb">
+	<li>
+		<i class="ace-icon fa fa-home home-icon"></i>
+		<a href="javascript:;">首页</a>
+	</li>
+	<% list.forEach(function(item, i){ %>
+		<% if(i + 1 < len) { %>
+			<li>
+				<a href="javascript:;"><%= item %></a>
+			</li>
+		<% } else { %>
+			<li class="active">
+				<%= item %>
+			</li>
+		<% } %>
+	<% }) %>
+</ul>
