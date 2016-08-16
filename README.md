@@ -4,5 +4,10 @@
 
 ## Install
 ```bash
-npm install autogo -g
+npm install gpmjs -g
+```
+
+## Usage
+```bash
+build <project name>
 ```
